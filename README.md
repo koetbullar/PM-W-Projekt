@@ -1,7 +1,7 @@
 # Group Project in Java // Programmiermethoden und -wekrzeuge
 
 ---
-## Brainstorming und Spielideen:
+Wir arbeiten nach dem "Git Feature Branch Workflow"!!!
 ---
 ### 2020.12.03 Entscheidung getroffen Hangman zu programmieren
 ---
