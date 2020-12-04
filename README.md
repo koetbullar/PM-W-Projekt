@@ -2,20 +2,11 @@
 
 ---
 ## Brainstorming und Spielideen:
-
-## Math learning platform:
-
-### Features:
-- Spiel aufgeteilt auf verschiedene levels/Themengebiete der Mathe im 1sten Semester
-- Begriffe aus dem Gebiet werden aufgelistet und nummeriert, nach der eingabe der Nummer wird der Begriff erklärt
-- weitere Fragen eventuell Bespiele zu dem Begriff/der Logischen Operation
-- vielleicht noch ein multiple choice test in jedem Gebiet?
-
 ---
-## Tic Tac Toe:
-
-### Features:
-- Tic Tac Toe funktionalität
-- Spielen gegen "Player 2" oder gegen "Computer"
-- Wie wird es Graphisch dargestellt? ASCII ??
-
+### 2020.12.03 Entscheidung getroffen Hangman zu programmieren
+---
+## Hangman Features Ideen:
+- Highscore
+- Sprachen: englisch, deutsch, beides?
+- Längste erfolgreiche Serie
+- verschiedene Themen
