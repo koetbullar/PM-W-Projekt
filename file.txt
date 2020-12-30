@@ -1,0 +1,6 @@
+informatik
+biologie
+geschichte
+sport
+chemie
+mathematik
