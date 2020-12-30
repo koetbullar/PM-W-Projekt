@@ -11,7 +11,7 @@ public class Hangman {
     gameLoop(); 
   }
 
-  public static String word( ) throws FileNotFoundException {
+  public static String word() throws FileNotFoundException {
     int listIndex = 0;
     File file = new File("file.txt");
     Scanner sc = new Scanner(file);
@@ -33,17 +33,17 @@ public class Hangman {
     return underline;
   }
   
-  public static String createNewStatus (char userentry, String givenWord, String underline) {
+  public static String createNewStatus(char userentry, String givenWord, String underline) {
     char [] newUnderline = underline.toCharArray();
-    String newStatus ;
+    String newStatus;
     for (int i = 0; i < givenWord.length(); i++) {
       if (givenWord.charAt(i) == userentry) {
         newUnderline[i] = userentry; 
-        }
+      }
     }
     newStatus = new String(newUnderline);
     return newStatus;
-   }
+  }
 
   public static void gameLoop() throws FileNotFoundException {
     Scanner in = new Scanner(System.in);   
@@ -66,7 +66,7 @@ public class Hangman {
       System.out.println("Congratulations");
         
     } else {
-        System.out.println("Looser");
+      System.out.println("Looser");
     }
   } 
 }
