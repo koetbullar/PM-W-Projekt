@@ -68,5 +68,60 @@ public class Hangman {
     } else {
       System.out.println("Looser");
     }
+  }
+
+      
+  public static void createHangmanArt(int failedAttempts) {
+    if(failedAttempts == 0) {
+      System.out.println("---------");
+      System.out.println("|/      |");
+      System.out.println("|        ");
+      System.out.println("|        ");
+      System.out.println("|        ");
+      System.out.println("|        ");
+    }    
+    if(failedAttempts == 1) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()");
+      System.out.println("|        ");
+      System.out.println("|        ");
+      System.out.println("|        ");
+  }
+    if(failedAttempts == 2) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|       |");
+      System.out.println("|        ");
+      System.out.println("|        ");
   } 
+    if(failedAttempts == 3) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|      /|\\");
+      System.out.println("|        ");
+      System.out.println("|        ");
+  }
+    if(failedAttempts == 4) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|      /|\\");
+      System.out.println("|      / ");
+      System.out.println("|        "); 
+  }
+    if(failedAttempts == 5) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|      /|\\");
+      System.out.println("|      / \\");
+      System.out.println("|        "); 
+}
+} 
+
+  
+  
 }
