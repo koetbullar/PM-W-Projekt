@@ -54,19 +54,70 @@ public class Hangman {
     
     System.out.println(createUnderline(givenWord));
     while (givenWord.equals(currentStatus) == false && failedAttempts <= maxErrors) {
+      createHangmanArt(failedAttempts);
+      System.out.println(currentStatus);
       char userEntry = in.next().charAt(0);
       currentStatus = createNewStatus(userEntry, givenWord, currentStatus);
-      System.out.println(currentStatus);
-      //Hier kommt der Hangman hin
       if (givenWord.contains("" + userEntry) == false) {
         failedAttempts++;
       }
     }
-    if (givenWord.equals(currentStatus)) {
+    if (givenWord.equals(currentStatus) && failedAttempts < maxErrors) {
       System.out.println("Congratulations");
-        
     } else {
       System.out.println("Looser");
     }
+  }
+
+  public static void createHangmanArt(int failedAttempts) {
+    if (failedAttempts == 0) {
+      System.out.println("---------");
+      System.out.println("|/      |");
+      System.out.println("|        ");
+      System.out.println("|        ");
+      System.out.println("|        ");
+      System.out.println("|        ");
+    }    
+    if (failedAttempts == 1) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()");
+      System.out.println("|        ");
+      System.out.println("|        ");
+      System.out.println("|        ");
+  }
+    if (failedAttempts == 2) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|       |");
+      System.out.println("|        ");
+      System.out.println("|        ");
   } 
+    if (failedAttempts == 3) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|      /|\\");
+      System.out.println("|        ");
+      System.out.println("|        ");
+  }
+    if (failedAttempts == 4) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|      /|\\");
+      System.out.println("|      / ");
+      System.out.println("|        "); 
+  }
+    if (failedAttempts == 5) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|      /|\\");
+      System.out.println("|      / \\");
+      System.out.println("|        "); 
+    }
+  }
+
 }
