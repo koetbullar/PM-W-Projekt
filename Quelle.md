@@ -1,5 +1,5 @@
 # Quellenangabe
----
+
 **List, ArrayList**
 YouTube: <https://www.youtube.com/watch?v=pTAda7qU4LY>
 Internet: <https://www.callicoder.com/java-arraylist/>
