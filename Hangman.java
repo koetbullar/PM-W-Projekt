@@ -52,8 +52,8 @@ public class Hangman {
     String givenWord = word();
     String currentStatus = createUnderline(givenWord);
     
-    System.out.println(createUnderline(givenWord));
-    while (givenWord.equals(currentStatus) == false && failedAttempts <= maxErrors) {
+    //System.out.println(createUnderline(givenWord));
+    while (givenWord.equals(currentStatus) == false && failedAttempts < maxErrors) {
       createHangmanArt(failedAttempts);
       System.out.println(currentStatus);
       char userEntry = in.next().charAt(0);
@@ -63,8 +63,10 @@ public class Hangman {
       }
     }
     if (givenWord.equals(currentStatus) && failedAttempts < maxErrors) {
+      System.out.println(currentStatus);
       System.out.println("Congratulations");
     } else {
+      createHangmanArt(failedAttempts);
       System.out.println("Looser");
     }
   }
