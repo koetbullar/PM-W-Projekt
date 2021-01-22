@@ -73,13 +73,22 @@ public class Hangman {
   }
 
   public static void proceedGame(int failedAttempts) throws FileNotFoundException {
-    if (failedAttempts == 5) System.out.println("Wanna try again? Enter 1! \n End Game? Enter 0");
-    if (failedAttempts < 5) System.out.println("Wanna continue? Enter 1 \n End Game? Enter 0");
+    if (failedAttempts == 5) {
+      System.out.println("Wanna try again? Enter 1! \n End Game? Enter 0");
+    }
+    if (failedAttempts < 5) {
+      System.out.println("Wanna continue? Enter 1 \n End Game? Enter 0");
+    }
     Scanner in = new Scanner(System.in);
     int playerDecision = in.nextInt();
-    if (playerDecision == 1){ gameLoop();}
-    if (playerDecision == 0) System.out.println("See you later my friend");
-      else { System.out.println("unvalid userentry"); proceedGame(failedAttempts);
+    if (playerDecision == 1) {
+       gameLoop();
+    }
+    if (playerDecision == 0) {
+      System.out.println("See you later my friend");
+    }
+    else { System.out.println("unvalid userentry");
+     proceedGame(failedAttempts);
     }
     
   }
