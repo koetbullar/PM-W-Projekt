@@ -80,15 +80,17 @@ public class Hangman {
       System.out.println("Wanna continue? Enter 1 \n End Game? Enter 0");
     }
     Scanner in = new Scanner(System.in);
+
     int playerDecision = in.nextInt();
+
     if (playerDecision == 1) {
-       gameLoop();
+      gameLoop();
     }
     if (playerDecision == 0) {
       System.out.println("See you later my friend");
-    }
-    else { System.out.println("unvalid userentry");
-     proceedGame(failedAttempts);
+    } else { 
+        System.out.println("unvalid userentry");
+        proceedGame(failedAttempts);
     }
     
   }
