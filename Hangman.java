@@ -7,8 +7,9 @@ import java.util.Scanner;
 
 public class Hangman {
   public static void main(String[] args) throws FileNotFoundException {
-       
-    gameLoop(); 
+     System.out.println("Willkommen bei Hangman");  
+     System.out.println("Sie haben 5 Versuche, das Richtige Wort zu erraten. \nSchaffen Sie es nicht, haben Sie verloren!");
+	 gameLoop(); 
   }
 
   public static String word() throws FileNotFoundException {
@@ -51,7 +52,7 @@ public class Hangman {
     int failedAttempts = 0;
     String givenWord = word();
     String currentStatus = createUnderline(givenWord);
-    
+    System.out.println ("Bitte Tippen Sie einen Buchstaben ein");
     //System.out.println(createUnderline(givenWord));
     while (givenWord.equals(currentStatus) == false && failedAttempts < maxErrors) {
       createHangmanArt(failedAttempts);
