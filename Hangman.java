@@ -89,8 +89,8 @@ public class Hangman {
     if (playerDecision == 0) {
       System.out.println("See you later my friend");
     } else { 
-        System.out.println("unvalid userentry");
-        proceedGame(failedAttempts);
+      System.out.println("unvalid userentry");
+      proceedGame(failedAttempts);
     }
     
   }
