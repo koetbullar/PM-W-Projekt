@@ -6,7 +6,7 @@ leibnitz
 goethe
 mozart
 davinci
-fibonnaci
+fibonacci
 heisenberg
 pythagoras
 laplace
