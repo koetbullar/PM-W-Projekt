@@ -39,7 +39,7 @@ public class Hangman {
       wordList.add(listIndex, sc.nextLine());
       listIndex++;
     }
-    System.out.println(wordList); // shows current words List, to be deleted later
+    //System.out.println(wordList); // shows current words List, to be deleted later
     int rand = (int) (Math.random() * wordList.size());
     return wordList.get(rand);
   }
