@@ -7,15 +7,32 @@ import java.util.Scanner;
 
 public class Hangman {
   public static void main(String[] args) throws FileNotFoundException {
-    System.out.println("Willkommen bei Hangman"); 
+    System.out.println("Willkommen bei Hangman!"); 
     System.out.println("Sie haben 5 Versuche, das Richtige Wort zu erraten.");
-	System.out.println("Schaffen Sie es nicht, haben Sie verloren!");
+    System.out.println("Schaffen Sie es nicht, haben Sie verloren!\n");
 	gameLoop();
   }
 
   public static String word() throws FileNotFoundException {
     int listIndex = 0;
-    File file = new File("file.txt");
+    int topic = 0;
+    String filePath = "";
+    System.out.println("Waehlen Sie jetzt das Themengebiet in dem Sie spielen wollen.\n");
+    while (topic < 1 || topic > 3) {
+      System.out.println("Geben Sie eine der folgenden Zahlen an:  \n 1. Fussballer \n 2. Historische Personen \n 3. Skispringer");
+      Scanner in = new Scanner(System.in);
+      topic = in.nextInt();
+    }
+    if (topic == 1) {
+      filePath = "words/fussballer.txt";
+    }
+    if (topic == 2) {
+      filePath = "words/historische_personen.txt";
+    }
+    if (topic == 3) {
+      filePath = "words/skipringer.txt";
+    }
+    File file = new File(filePath);
     Scanner sc = new Scanner(file);
     List<String> wordList = new ArrayList<>();
     while (sc.hasNextLine()) {
@@ -54,7 +71,6 @@ public class Hangman {
     String givenWord = word();
     String currentStatus = createUnderline(givenWord);
     System.out.println("Bitte Tippen Sie einen Buchstaben ein");
-    //System.out.println(createUnderline(givenWord));
     while (givenWord.equals(currentStatus) == false && failedAttempts < maxErrors) {
       createHangmanArt(failedAttempts);
       System.out.println(currentStatus);
