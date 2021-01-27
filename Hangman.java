@@ -10,7 +10,7 @@ public class Hangman {
     System.out.println("Willkommen bei Hangman"); 
     System.out.println("Sie haben 5 Versuche, das Richtige Wort zu erraten.");
 	System.out.println("Schaffen Sie es nicht, haben Sie verloren!");
-	gameLoop();
+	gameLoop(0);
   }
 
   public static String word() throws FileNotFoundException {
@@ -47,13 +47,16 @@ public class Hangman {
     return newStatus;
   }
 
-  public static void gameLoop() throws FileNotFoundException {
+  public static void gameLoop(int highscore) throws FileNotFoundException {
     Scanner in = new Scanner(System.in);   
     int maxErrors = 5;
-    int failedAttempts = 0;
+    int failedAttempts = 5;
     String givenWord = word();
     String currentStatus = createUnderline(givenWord);
+    System.out.print("Ihr aktueller Score beträgt: ");
+    System.out.println(showhighscore(failedAttempts, highscore));
     System.out.println("Bitte Tippen Sie einen Buchstaben ein");
+    failedAttempts = 0;
     //System.out.println(createUnderline(givenWord));
     while (givenWord.equals(currentStatus) == false && failedAttempts < maxErrors) {
       createHangmanArt(failedAttempts);
@@ -71,10 +74,10 @@ public class Hangman {
       createHangmanArt(failedAttempts);
       System.out.println("Looser");
     }
-    proceedGame(failedAttempts);
+    proceedGame(failedAttempts, highscore);
   }
 
-  public static void proceedGame(int failedAttempts) throws FileNotFoundException {
+  public static void proceedGame(int failedAttempts, int highscore) throws FileNotFoundException {
     if (failedAttempts == 5) {
       System.out.println("Wanna try again? Enter 1! \n End Game? Enter 0");
     }
@@ -86,17 +89,23 @@ public class Hangman {
     int playerDecision = in.nextInt();
 
     if (playerDecision == 1) {
-      gameLoop();
+      gameLoop(showhighscore(failedAttempts, highscore));
     }
     if (playerDecision == 0) {
       System.out.println("See you later my friend");
     } else { 
       System.out.println("unvalid userentry");
-      proceedGame(failedAttempts);
-    }
-    
+      proceedGame(failedAttempts,highscore);
+    }    
   }
-  
+
+  public static int showhighscore(int failedAttempts, int highscore) {
+    for(int i = 5; i > failedAttempts; i--) {
+      highscore += 20;
+    }
+    return highscore;
+  }
+
 
   public static void createHangmanArt(int failedAttempts) {
     if (failedAttempts == 0) {
