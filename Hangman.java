@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class Hangman {
   public static void main(String[] args) throws FileNotFoundException {
-    System.out.println("Willkommen bei Hangman"); 
+    System.out.println("Willkommen bei Hangman");
     System.out.println("Sie haben 5 Versuche, das Richtige Wort zu erraten.");
-	System.out.println("Schaffen Sie es nicht, haben Sie verloren!");
-	gameLoop(0);
+    System.out.println("Schaffen Sie es nicht, haben Sie verloren!");
+    gameLoop(0);
   }
 
   public static String word() throws FileNotFoundException {
@@ -93,7 +93,7 @@ public class Hangman {
       System.out.println("See you later my friend");
     } else {
       System.out.println("unvalid userentry");
-      proceedGame(failedAttempts,highscore);
+      proceedGame(failedAttempts, highscore);
     }    
   }
 
