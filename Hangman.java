@@ -10,7 +10,7 @@ public class Hangman {
     System.out.println("Willkommen bei Hangman!"); 
     System.out.println("Sie haben 5 Versuche, das Richtige Wort zu erraten.");
     System.out.println("Schaffen Sie es nicht, haben Sie verloren!\n");
-	gameLoop();
+    gameLoop();
   }
 
   public static String word() throws FileNotFoundException {
@@ -19,7 +19,8 @@ public class Hangman {
     String filePath = "";
     System.out.println("Waehlen Sie jetzt das Themengebiet in dem Sie spielen wollen.\n");
     while (topic < 1 || topic > 3) {
-      System.out.println("Geben Sie eine der folgenden Zahlen an:  \n 1. Fussballer \n 2. Historische Personen \n 3. Skispringer");
+      System.out.println("Geben Sie eine der folgenden Zahlen an:");
+      System.out.println(" 1. Fussballer \n 2. Historische Personen \n 3. Skispringer");
       Scanner in = new Scanner(System.in);
       topic = in.nextInt();
     }
