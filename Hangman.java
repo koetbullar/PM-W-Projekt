@@ -11,10 +11,6 @@ public class Hangman {
     System.out.println("Sie haben 5 Versuche, das Richtige Wort zu erraten.");
     System.out.println("Schaffen Sie es nicht, haben Sie verloren!");
     gameLoop(0);
-    System.out.println("Willkommen bei Hangman!"); 
-    System.out.println("Sie haben 5 Versuche, das Richtige Wort zu erraten.");
-    System.out.println("Schaffen Sie es nicht, haben Sie verloren!\n");
-    gameLoop();
   }
 
   public static String word() throws FileNotFoundException {
