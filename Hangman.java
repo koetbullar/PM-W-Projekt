@@ -126,7 +126,7 @@ public class Hangman {
   public static void createHangmanArt(int failedAttempts) {
     if (failedAttempts == 0) {
       System.out.println("---------");
-      System.out.println("|/      |");
+      System.out.println("|/      ");
       System.out.println("|        ");
       System.out.println("|        ");
       System.out.println("|        ");
@@ -134,8 +134,8 @@ public class Hangman {
     } 
     if (failedAttempts == 1) {
       System.out.println("--------");
-      System.out.println("|/      |");
-      System.out.println("|      ()");
+      System.out.println("|/      ");
+      System.out.println("|      ");
       System.out.println("|        ");
       System.out.println("|        ");
       System.out.println("|        ");
@@ -143,8 +143,8 @@ public class Hangman {
     if (failedAttempts == 2) {
       System.out.println("--------");
       System.out.println("|/      |");
-      System.out.println("|      ()"); 
-      System.out.println("|       |");
+      System.out.println("|      "); 
+      System.out.println("|       ");
       System.out.println("|        ");
       System.out.println("|        ");
     }
@@ -152,7 +152,7 @@ public class Hangman {
       System.out.println("--------");
       System.out.println("|/      |");
       System.out.println("|      ()"); 
-      System.out.println("|      /|\\");
+      System.out.println("|      ");
       System.out.println("|        ");
       System.out.println("|        ");
     }
@@ -160,11 +160,35 @@ public class Hangman {
       System.out.println("--------");
       System.out.println("|/      |");
       System.out.println("|      ()"); 
+      System.out.println("|      ");
+      System.out.println("|       ");
+      System.out.println("|        "); 
+    }
+    if (failedAttempts == 5) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|      /|");
+      System.out.println("|       ");
+      System.out.println("|        "); 
+    }
+    if (failedAttempts == 6) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
+      System.out.println("|      /|\\");
+      System.out.println("|       ");
+      System.out.println("|        "); 
+    }
+    if (failedAttempts == 7) {
+      System.out.println("--------");
+      System.out.println("|/      |");
+      System.out.println("|      ()"); 
       System.out.println("|      /|\\");
       System.out.println("|      / ");
       System.out.println("|        "); 
     }
-    if (failedAttempts == 5) {
+    if (failedAttempts == 8) {
       System.out.println("--------");
       System.out.println("|/      |");
       System.out.println("|      ()"); 
@@ -172,6 +196,6 @@ public class Hangman {
       System.out.println("|      / \\");
       System.out.println("|        "); 
     }
-  }
+}
 
 }
