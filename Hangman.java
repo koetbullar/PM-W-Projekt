@@ -109,7 +109,8 @@ public class Hangman {
     }
     else if (playerDecision.equals("n") ) {
       System.out.println("See you later my friend");
-    } else {
+    }
+    else {
       System.out.println("unvalid userentry");
       proceedGame(failedAttempts, highscore);
     }    
@@ -196,6 +197,6 @@ public class Hangman {
       System.out.println("|      / \\");
       System.out.println("|        "); 
     }
-}
+  }
 
 }
