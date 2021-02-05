@@ -106,11 +106,9 @@ public class Hangman {
     String playerDecision = in.nextLine();
     if (playerDecision.equals("y")) {
       gameLoop(showhighscore(failedAttempts, highscore));
-    }
-    else if (playerDecision.equals("n") ) {
+    } else if (playerDecision.equals("n")) {
       System.out.println("See you later my friend");
-    }
-    else {
+    } else {
       System.out.println("unvalid userentry");
       proceedGame(failedAttempts, highscore);
     }    
