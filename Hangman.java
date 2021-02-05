@@ -67,8 +67,8 @@ public class Hangman {
 
   public static void gameLoop(int highscore) throws FileNotFoundException {
     Scanner in = new Scanner(System.in);   
-    int maxErrors = 5;
-    int failedAttempts = 5;
+    int maxErrors = 8;
+    int failedAttempts = 8;
     String givenWord = word();
     String currentStatus = createUnderline(givenWord);
     System.out.print("Ihr aktueller Score beträgt: ");
@@ -96,18 +96,18 @@ public class Hangman {
   }
 
   public static void proceedGame(int failedAttempts, int highscore) throws FileNotFoundException {
-    if (failedAttempts == 5) {
-      System.out.println("Wanna try again? Enter 1! \n End Game? Enter 0");
+    if (failedAttempts == 8) {
+      System.out.println("Wanna try again? Enter y! \nEnd Game? Enter n");
     }
-    if (failedAttempts < 5) {
-      System.out.println("Wanna continue? Enter 1 \n End Game? Enter 0");
+    if (failedAttempts < 8) {
+      System.out.println("Wanna continue? Enter y \nEnd Game? Enter n");
     }
     Scanner in = new Scanner(System.in);
-    int playerDecision = in.nextInt();
-    if (playerDecision == 1) {
+    String playerDecision = in.nextLine();
+    if (playerDecision.equals("y")) {
       gameLoop(showhighscore(failedAttempts, highscore));
     }
-    if (playerDecision == 0) {
+    else if (playerDecision.equals("n") ) {
       System.out.println("See you later my friend");
     } else {
       System.out.println("unvalid userentry");
@@ -116,8 +116,8 @@ public class Hangman {
   }
 
   public static int showhighscore(int failedAttempts, int highscore) {
-    for (int i = 5; i > failedAttempts; i--) {
-      highscore += 20;
+    for (int i = 8; i > failedAttempts; i--) {
+      highscore += 10;
     }
     return highscore;
   }
@@ -125,7 +125,7 @@ public class Hangman {
 
   public static void createHangmanArt(int failedAttempts) {
     if (failedAttempts == 0) {
-      System.out.println("---------");
+      System.out.println("");
       System.out.println("|/      ");
       System.out.println("|        ");
       System.out.println("|        ");
@@ -133,47 +133,47 @@ public class Hangman {
       System.out.println("|        ");
     } 
     if (failedAttempts == 1) {
-      System.out.println("--------");
-      System.out.println("|/      ");
-      System.out.println("|      ");
+      System.out.println("---------");
+      System.out.println("|/       ");
+      System.out.println("|        ");
       System.out.println("|        ");
       System.out.println("|        ");
       System.out.println("|        ");
     }
     if (failedAttempts == 2) {
-      System.out.println("--------");
+      System.out.println("---------");
       System.out.println("|/      |");
-      System.out.println("|      "); 
-      System.out.println("|       ");
+      System.out.println("|        "); 
+      System.out.println("|        ");
       System.out.println("|        ");
       System.out.println("|        ");
     }
     if (failedAttempts == 3) {
-      System.out.println("--------");
+      System.out.println("---------");
       System.out.println("|/      |");
       System.out.println("|      ()"); 
-      System.out.println("|      ");
+      System.out.println("|        ");
       System.out.println("|        ");
       System.out.println("|        ");
     }
     if (failedAttempts == 4) {
-      System.out.println("--------");
+      System.out.println("---------");
       System.out.println("|/      |");
       System.out.println("|      ()"); 
-      System.out.println("|      ");
-      System.out.println("|       ");
+      System.out.println("|       |");
+      System.out.println("|        ");
       System.out.println("|        "); 
     }
     if (failedAttempts == 5) {
-      System.out.println("--------");
+      System.out.println("---------");
       System.out.println("|/      |");
       System.out.println("|      ()"); 
       System.out.println("|      /|");
-      System.out.println("|       ");
+      System.out.println("|        ");
       System.out.println("|        "); 
     }
     if (failedAttempts == 6) {
-      System.out.println("--------");
+      System.out.println("---------");
       System.out.println("|/      |");
       System.out.println("|      ()"); 
       System.out.println("|      /|\\");
@@ -181,7 +181,7 @@ public class Hangman {
       System.out.println("|        "); 
     }
     if (failedAttempts == 7) {
-      System.out.println("--------");
+      System.out.println("---------");
       System.out.println("|/      |");
       System.out.println("|      ()"); 
       System.out.println("|      /|\\");
@@ -189,7 +189,7 @@ public class Hangman {
       System.out.println("|        "); 
     }
     if (failedAttempts == 8) {
-      System.out.println("--------");
+      System.out.println("---------");
       System.out.println("|/      |");
       System.out.println("|      ()"); 
       System.out.println("|      /|\\");
