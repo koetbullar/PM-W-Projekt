@@ -7,9 +7,12 @@ import java.util.Scanner;
 
 public class Hangman {
   public static void main(String[] args) throws FileNotFoundException {
-    System.out.println("Willkommen bei Hangman");
-    System.out.println("Sie haben 5 Versuche, das Richtige Wort zu erraten.");
-    System.out.println("Schaffen Sie es nicht, haben Sie verloren!");
+    System.out.println("Willkommen bei Hangman! \n");
+    //printLogo();
+    System.out.println("Die Regeln:");
+    System.out.println("[1] Sie haben 8 Versuche, das Richtige Wort zu erraten.");
+    System.out.println("[2] Schaffen Sie es nicht, haben Sie verloren!");
+    System.out.println("[3] Pro Fehler werden 10 Punkte abgezogen von den maximalen 80.\n");
     gameLoop(0);
   }
 
@@ -18,9 +21,10 @@ public class Hangman {
     int topic = 0;
     String filePath = "";
     System.out.println("Waehlen Sie jetzt das Themengebiet in dem Sie spielen wollen.\n");
-    while (topic < 1 || topic > 3) {
+    while (topic < 1 || topic > 5) {
       System.out.println("Geben Sie eine der folgenden Zahlen an:");
       System.out.println(" 1. Fussballer \n 2. Historische Personen \n 3. Skispringer");
+      System.out.println(" 4. Laender \n 5. Staedte");
       Scanner in = new Scanner(System.in);
       topic = in.nextInt();
     }
@@ -32,6 +36,12 @@ public class Hangman {
     }
     if (topic == 3) {
       filePath = "words/skipringer.txt";
+    }
+    if (topic == 4) {
+      filePath = "words/land.txt";
+    }
+    if (topic == 5) {
+      filePath = "words/stadt.txt";
     }
     File file = new File(filePath);
     Scanner sc = new Scanner(file);
@@ -87,29 +97,29 @@ public class Hangman {
     }
     if (givenWord.equals(currentStatus) && failedAttempts < maxErrors) {
       System.out.println(currentStatus);
-      System.out.println("Congratulations");
+      System.out.println("Sie haben das Wort: " + givenWord  + " erraten \n");
     } else {
       createHangmanArt(failedAttempts);
-      System.out.println("Looser");
+      System.out.println("Sie haben das Wort: "  + givenWord + " nicht erraten koennen \n");
     }
     proceedGame(failedAttempts, highscore);
   }
 
   public static void proceedGame(int failedAttempts, int highscore) throws FileNotFoundException {
     if (failedAttempts == 8) {
-      System.out.println("Wanna try again? Enter y! \nEnd Game? Enter n");
+      System.out.println("Noch ein Versuch? \ny eingeben! \nSpiel beenden? \nn eingeben");
     }
     if (failedAttempts < 8) {
-      System.out.println("Wanna continue? Enter y \nEnd Game? Enter n");
+      System.out.println("Weiterspielen? \ny eingeben! \nSpiel beenden? \nn eingeben");
     }
     Scanner in = new Scanner(System.in);
     String playerDecision = in.nextLine();
     if (playerDecision.equals("y")) {
       gameLoop(showhighscore(failedAttempts, highscore));
     } else if (playerDecision.equals("n")) {
-      System.out.println("See you later my friend");
+      System.out.println("Schon aufgegeben? Schwach!");
     } else {
-      System.out.println("unvalid userentry");
+      System.out.println("falsche Eingabe");
       proceedGame(failedAttempts, highscore);
     }    
   }
@@ -196,5 +206,7 @@ public class Hangman {
       System.out.println("|        "); 
     }
   }
-
+  public static void printLogo() {
+      
+  }
 }
