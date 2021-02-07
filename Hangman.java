@@ -127,13 +127,13 @@ public class Hangman {
     return highscore;
   }
   
-  public static char checkUserEntry(String cStatus) {
+  public static char checkUserEntry(String curStatus) {
     Scanner in = new Scanner(System.in);
     char userEntry = in.next().charAt(0);
     System.out.println("Tippen Sie einen Buchstaben ein\n");
-    while (cStatus.indexOf(userEntry) > -1) {
-        System.out.println("Den Buchstaben: " + userEntry + " haben Sie bereits erraten");
-        userEntry = in.next().charAt(0);
+    while (curStatus.indexOf(userEntry) > -1) {
+      System.out.println("Den Buchstaben: " + userEntry + " haben Sie bereits erraten");
+      userEntry = in.next().charAt(0);
     }
     return userEntry;
   }
