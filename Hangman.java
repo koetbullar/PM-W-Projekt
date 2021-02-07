@@ -50,7 +50,6 @@ public class Hangman {
       wordList.add(listIndex, sc.nextLine());
       listIndex++;
     }
-    //System.out.println(wordList); // shows current words List, to be deleted later
     int rand = (int) (Math.random() * wordList.size());
     return wordList.get(rand);
   }
@@ -75,21 +74,17 @@ public class Hangman {
     return newStatus;
   }
 
-  public static void gameLoop(int highscore) throws FileNotFoundException {
-    Scanner in = new Scanner(System.in);   
-    int maxErrors = 8;
+  public static void gameLoop(int highscore) throws FileNotFoundException {  
+    final int maxErrors = 8;
     int failedAttempts = 8;
     String givenWord = word();
-    String currentStatus = createUnderline(givenWord);
-    System.out.print("Ihr aktueller Score beträgt: ");
     System.out.println(showhighscore(failedAttempts, highscore));
-    System.out.println("Bitte Tippen Sie einen Buchstaben ein");
+    String currentStatus = createUnderline(givenWord);
     failedAttempts = 0;
-    //System.out.println(createUnderline(givenWord));
     while (givenWord.equals(currentStatus) == false && failedAttempts < maxErrors) {
       createHangmanArt(failedAttempts);
       System.out.println(currentStatus);
-      char userEntry = in.next().charAt(0);
+      char userEntry = checkUserEntry(currentStatus);
       currentStatus = createNewStatus(userEntry, givenWord, currentStatus);
       if (givenWord.contains("" + userEntry) == false) {
         failedAttempts++;
@@ -128,9 +123,21 @@ public class Hangman {
     for (int i = 8; i > failedAttempts; i--) {
       highscore += 10;
     }
+    System.out.print("Ihr aktueller Score betraegt: ");
     return highscore;
   }
-
+  
+  public static char checkUserEntry(String cStatus) {
+    Scanner in = new Scanner(System.in);
+    char userEntry = in.next().charAt(0);
+    System.out.println("Tippen Sie einen Buchstaben ein\n");
+    while (cStatus.indexOf(userEntry) > -1) {
+        System.out.println("Den Buchstaben: " + userEntry + " haben Sie bereits erraten");
+        userEntry = in.next().charAt(0);
+    }
+    return userEntry;
+  }
+      
 
   public static void createHangmanArt(int failedAttempts) {
     if (failedAttempts == 0) {
@@ -206,7 +213,7 @@ public class Hangman {
       System.out.println("|        "); 
     }
   }
-  
+
   public static void printLogo() {
       
   }
