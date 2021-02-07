@@ -206,6 +206,7 @@ public class Hangman {
       System.out.println("|        "); 
     }
   }
+  
   public static void printLogo() {
       
   }
