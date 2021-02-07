@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Hangman {
   public static void main(String[] args) throws FileNotFoundException {
     System.out.println("Willkommen bei Hangman! \n");
-    //printLogo();
+    printLogo();
     System.out.println("Die Regeln:");
     System.out.println("[1] Sie haben 8 Versuche, das Richtige Wort zu erraten.");
     System.out.println("[2] Schaffen Sie es nicht, haben Sie verloren!");
@@ -215,6 +215,15 @@ public class Hangman {
   }
 
   public static void printLogo() {
-      
+    System.out.println(" ██░ ██  ▄▄▄       ███▄    █   ▄████  ███▄ ▄███▓ ▄▄▄       ███▄    █ ");
+    System.out.println("▓██░ ██▒▒████▄     ██ ▀█   █  ██▒ ▀█▒▓██▒▀█▀ ██▒▒████▄     ██ ▀█   █ ");
+    System.out.println("▒██▀▀██░▒██  ▀█▄  ▓██  ▀█ ██▒▒██░▄▄▄░▓██    ▓██░▒██  ▀█▄  ▓██  ▀█ ██▒");
+    System.out.println("░▓█ ░██ ░██▄▄▄▄██ ▓██▒  ▐▌██▒░▓█  ██▓▒██    ▒██ ░██▄▄▄▄██ ▓██▒  ▐▌██▒");
+    System.out.println("░▓█▒░██▓ ▓█   ▓██▒▒██░   ▓██░░▒▓███▀▒▒██▒   ░██▒ ▓█   ▓██▒▒██░   ▓██░");
+    System.out.println("▒ ░░▒░▒ ▒▒   ▓▒█░░ ▒░   ▒ ▒  ░▒   ▒ ░ ▒░   ░  ░ ▒▒   ▓▒█░░ ▒░   ▒ ▒ ");
+    System.out.println("▒ ░▒░ ░  ▒   ▒▒ ░░ ░░   ░ ▒░  ░   ░ ░  ░      ░  ▒   ▒▒ ░░ ░░   ░ ▒░");
+    System.out.println("░  ░░ ░  ░   ▒      ░   ░ ░ ░ ░   ░ ░      ░     ░   ▒      ░   ░ ░ ");
+    System.out.println("░  ░  ░      ░  ░         ░       ░        ░         ░  ░         ░ ");
   }
+   
 }
