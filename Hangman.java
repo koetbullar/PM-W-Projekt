@@ -113,7 +113,7 @@ public class Hangman {
     Scanner in = new Scanner(System.in);
     String playerDecision = in.nextLine();
     if (playerDecision.equals("y")) {
-    gameLoop(showhighscore(failedAttempts, highscore));
+      gameLoop(showhighscore(failedAttempts, highscore));
     } else if (playerDecision.equals("n")) {
       System.out.println("Schon aufgegeben? Schwach!");
     } else {
