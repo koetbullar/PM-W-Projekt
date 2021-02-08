@@ -10,9 +10,10 @@ public class Hangman {
     System.out.println("Willkommen bei Hangman! \n");
     printLogo();
     System.out.println("Die Regeln:");
-    System.out.println("[1] Sie haben 8 Versuche, das Richtige Wort zu erraten.");
-    System.out.println("[2] Schaffen Sie es nicht, haben Sie verloren!");
-    System.out.println("[3] Pro Fehler werden 10 Punkte abgezogen von den maximalen 80.\n");
+    System.out.println("[1] Du hast 8 Versuche, das Richtige Wort zu erraten.");
+    System.out.println("[2] Schaffst du es nicht, hast du verloren!");
+    System.out.println("[3] In jeder runde kannst du maximal 80 Punkte bekommen");
+    System.out.println("[4] Pro Fehler werden 10 Punkte abgezogen von den maximalen 80.\n");
     gameLoop(0);
   }
 
@@ -20,9 +21,9 @@ public class Hangman {
     int listIndex = 0;
     int topic = 0;
     String filePath = "";
-    System.out.println("Waehlen Sie jetzt das Themengebiet in dem Sie spielen wollen.\n");
+    System.out.println("Waehle jetzt das Themengebiet in dem du spielen willst.\n");
     while (topic < 1 || topic > 5) {
-      System.out.println("Geben Sie eine der folgenden Zahlen an:");
+      System.out.println("Gib eine der folgenden Zahlen ein:");
       System.out.println(" 1. Fussballer \n 2. Historische Personen \n 3. Skispringer");
       System.out.println(" 4. Laender \n 5. Staedte");
       Scanner in = new Scanner(System.in);
@@ -78,6 +79,7 @@ public class Hangman {
     final int maxErrors = 8;
     int failedAttempts = 8;
     String givenWord = word();
+    System.out.print("Dein aktueller Score betraegt:");
     System.out.println(showhighscore(failedAttempts, highscore));
     String currentStatus = createUnderline(givenWord);
     failedAttempts = 0;
@@ -92,10 +94,10 @@ public class Hangman {
     }
     if (givenWord.equals(currentStatus) && failedAttempts < maxErrors) {
       System.out.println(currentStatus);
-      System.out.println("Sie haben das Wort: " + givenWord  + " erraten \n");
+      System.out.println("Du hast das Wort: " + givenWord  + " erraten \n");
     } else {
       createHangmanArt(failedAttempts);
-      System.out.println("Sie haben das Wort: "  + givenWord + " nicht erraten koennen \n");
+      System.out.println("Du hast das Wort: "  + givenWord + " nicht erraten koennen \n");
     }
     proceedGame(failedAttempts, highscore);
   }
@@ -103,6 +105,7 @@ public class Hangman {
   public static void proceedGame(int failedAttempts, int highscore) throws FileNotFoundException {
     if (failedAttempts == 8) {
       System.out.println("Noch ein Versuch? \ny eingeben! \nSpiel beenden? \nn eingeben");
+      highscore = 0;
     }
     if (failedAttempts < 8) {
       System.out.println("Weiterspielen? \ny eingeben! \nSpiel beenden? \nn eingeben");
@@ -110,7 +113,7 @@ public class Hangman {
     Scanner in = new Scanner(System.in);
     String playerDecision = in.nextLine();
     if (playerDecision.equals("y")) {
-      gameLoop(showhighscore(failedAttempts, highscore));
+    gameLoop(showhighscore(failedAttempts, highscore));
     } else if (playerDecision.equals("n")) {
       System.out.println("Schon aufgegeben? Schwach!");
     } else {
@@ -123,16 +126,15 @@ public class Hangman {
     for (int i = 8; i > failedAttempts; i--) {
       highscore += 10;
     }
-    System.out.print("Ihr aktueller Score betraegt: ");
     return highscore;
   }
   
   public static char checkUserEntry(String curStatus) {
     Scanner in = new Scanner(System.in);
     char userEntry = in.next().charAt(0);
-    System.out.println("Tippen Sie einen Buchstaben ein\n");
+    System.out.println("Tipp  einen Buchstaben ein\n");
     while (curStatus.indexOf(userEntry) > -1) {
-      System.out.println("Den Buchstaben: " + userEntry + " haben Sie bereits erraten");
+      System.out.println("Den Buchstaben: " + userEntry + " hast du bereits erraten");
       userEntry = in.next().charAt(0);
     }
     return userEntry;
