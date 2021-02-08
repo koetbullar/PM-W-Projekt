@@ -84,7 +84,7 @@ public class Hangman {
     String currentStatus = createUnderline(givenWord);
     failedAttempts = 0;
     while (givenWord.equals(currentStatus) == false && failedAttempts < maxErrors) {
-      createHangmanArt(failedAttempts);
+      printHangmanArt(failedAttempts);
       System.out.println(currentStatus);
       char userEntry = checkUserEntry(currentStatus);
       currentStatus = createNewStatus(userEntry, givenWord, currentStatus);
@@ -96,7 +96,7 @@ public class Hangman {
       System.out.println(currentStatus);
       System.out.println("Du hast das Wort: " + givenWord  + " erraten \n");
     } else {
-      createHangmanArt(failedAttempts);
+      printHangmanArt(failedAttempts);
       System.out.println("Du hast das Wort: "  + givenWord + " nicht erraten koennen \n");
     }
     proceedGame(failedAttempts, highscore);
@@ -133,6 +133,10 @@ public class Hangman {
     Scanner in = new Scanner(System.in);
     char userEntry = in.next().charAt(0);
     System.out.println("Tipp  einen Buchstaben ein\n");
+    while (userEntry < 97 || userEntry > 122) {
+      System.out.println("Gib doch einen Buchstaben ein...");
+      userEntry = in.next().charAt(0);
+    }
     while (curStatus.indexOf(userEntry) > -1) {
       System.out.println("Den Buchstaben: " + userEntry + " hast du bereits erraten");
       userEntry = in.next().charAt(0);
@@ -141,7 +145,7 @@ public class Hangman {
   }
       
 
-  public static void createHangmanArt(int failedAttempts) {
+  public static void printHangmanArt(int failedAttempts) {
     if (failedAttempts == 0) {
       System.out.println("");
       System.out.println("|/      ");
